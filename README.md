@@ -4,6 +4,8 @@ A better way to Try/Catch in C#
 # Examples
 
 ### Use as an Easy Convert.To Proxy:
+
+#### C# (Version Pre-7.0)
 ```csharp
 string input = "false"
 bool? output = null;
@@ -13,6 +15,17 @@ if (output.HasValue) {
   // Do stuff with "output.Value"
 }
 ```
+
+#### C# (Version 7.0)
+```csharp
+string input = "false"
+Try.Run(Convert.ToBoolean, input, out bool? output);
+
+if (output.HasValue) {
+  // Do stuff with "output.Value"
+}
+```
+
 
 ### Use as a Cleaner Try, Multiple Catch Statement:
 ```csharp
